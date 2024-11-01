@@ -1,93 +1,87 @@
 window.MTT.skyscraper({
-                        adfox: {
-                            ownerId: 277740,
-                            params: {
-                                p1: "desss",
-                                p2: "gdyk",
+    adfox: {
+        ownerId: 277740,
+        params: {
+            p1: "desss",
+            p2: "gdyk",
+        },
+    },
+    measurerEl: "#lentaFeed",
+    targetEl: "#right-column",
+    lazyLoad: true,
+    lazyLoadDistance: window.innerHeight,
+    injectionFrequency: 3,
+    offset: 70,
+    adProvider(container, index, callback) {
+        callback({
+            noRefresh: true,
+        });
+        const wrapper = window.MTT.wrapper({
+            adfox: {
+                ownerId: 277740,
+                params: {
+                    p1: "desss",
+                    p2: "gdyk",
+                    "partner-stat-id": "1234",
+                },
+            },
+            adfoxHeaderBidding: {
+                units: [
+                    {
+                        sizes: [[240, 400]],
+                        bids: [
+                            {
+                                bidder: "myTarget",
+                                params: {
+                                    placementId: "1711152",
+                                },
                             },
-                        },
-                        measurerEl: "#lentaFeed",
-                        targetEl: "#right-column",
-                        lazyLoad: true,
-                        lazyLoadDistance: window.innerHeight,
-                        injectionFrequency: 3,
-                        offset: 70,
-                        adProvider(container, index, callback) {
-                            callback({
-                                noRefresh: true,
-                            });
-                            const wrapper = window.MTT.wrapper({
-                                adfox: {
-                                    ownerId: 277740,
-                                    params: {
-                                       p1: "desss",
-                                       p2: "gdyk",
-                                        "partner-stat-id": "1234",
-                                    },
-                                },
-                                adfoxHeaderBidding: {
-                                    units: [
-                                        {
-                                            sizes: [[240, 400]],
-                                            bids: [
-                                                {
-                                                    bidder: "myTarget",
-                                                    params: {
-                                                        placementId: "1711152",
-                                                    },
-                                                },
-                                                { bidder: "otclick", params: { placementId: "" } },
-                                                {
-                                                    bidder: "astralab",
-                                                    params: { placementId: "" },
-                                                },
-                                                // {
-                                                //     bidder: "adriver",
-                                                //     params: {
-                                                //         placementId: "40:V_stroy-podskazka.ru_D_Skyscraper",
-                                                //         // @ts-ignore
-                                                //         additional: {
-                                                //             ext: {
-                                                //                 query: "custom=10=40&cid=" + localStorage.getItem("adrcid"),
-                                                //             },
-                                                //         },
-                                                //     },
-                                                // },
-                                                {
-                                                    bidder: "getintent",
-                                                    params: { placementId: "215_V_stroy-podskazka.ru_D_Skyscraper_240x400" },
-                                                },
-                                                // @ts-ignore
-                                                // { bidder: "buzzoola", params: { placementId: "1279708" } },
-                                                {
-                                                    bidder: "mediasniper",
-                                                    params: {
-                                                        placementId: "18355",
-                                                        // @ts-ignore
-                                                        additional: {
-                                                            ext: { luid: localStorage.getItem("tf_lid") },
-
-                                                        },
-                                                    },
-                                                },
-                                                {
-                                                    bidder: "roxot",
-                                                    params: {
-                                                        placementId: "d1ed14df-8181-4fce-b473-240878fe3420",
-                                                        sendTargetRef: true,
-                                                    },
-                                                },
-                                            ],
+                            // { bidder: "otclick", params: { placementId: "" } },
+                            // {
+                            //     bidder: "astralab",
+                            //     params: { placementId: "" },
+                            // },
+                            {
+                                bidder: "adriver",
+                                params: {
+                                    placementId: "40:V_stroy-podskazka.ru_D_Skyscraper",
+                                    // @ts-ignore
+                                    additional: {
+                                        ext: {
+                                            query: "custom=10=40&cid=" + localStorage.getItem("adrcid"),
                                         },
-                                    ],
-                                },
-                                banner: {
-                                    refresh: {
-                                        checkVisibility: true,
-                                        seconds: 30,
                                     },
                                 },
-                                containerId: container.id,
-                            });
-                        },
-                    });
+                            },
+                            {
+                                bidder: "getintent",
+                                params: { placementId: "215_V_stroy-podskazka.ru_D_Skyscraper_240x400" },
+                            },
+                            // @ts-ignore
+                            { bidder: "buzzoola", params: { placementId: "1279708" } },
+                            {
+                                bidder: "mediasniper",
+                                params: {
+                                    placementId: "18355",
+                                    // @ts-ignore
+                                    additional: {
+                                        ext: { luid: localStorage.getItem("tf_lid") },
+
+                                    },
+                                },
+                            },
+                            { bidder: "betweenDigital", params: { placementId: "4803932" } },
+                        ],
+                    },
+                ],
+            },
+            banner: {
+                refresh: {
+                    checkVisibility: true,
+                    seconds: 30,
+                },
+            },
+            containerId: container.id,
+        });
+    },
+});
